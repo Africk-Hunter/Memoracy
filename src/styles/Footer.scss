@@ -1,0 +1,25 @@
+@use './variables' as *;
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    background: $main-color;
+    color: $cream-color;
+    padding: 2rem 2rem;
+}
+
+.footerText{
+    font-size: clamp(0.2rem, .6rem, 1rem);
+    font-family: 'Montserrat', sans-serif;
+
+    @media (min-width: 769px) {
+        font-size: clamp(0.2rem, .8rem, 1rem);
+    }
+}
+
+a{
+    text-decoration: none;
+    color: $cream-color;
+}

@@ -1,0 +1,15 @@
+@use './variables' as *;
+@use './Navbar';
+@use './Hero';
+@use './Footer';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+html {
+    background: $background-color;
+}
+
+.shadowAndBorder{
+    box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.25);
+    border: 2px solid black;
+}

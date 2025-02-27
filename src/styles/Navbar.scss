@@ -1,0 +1,67 @@
+@use './variables' as *;
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.unLoggedInNavButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    border-radius: 40px;
+    background: $cream-color;
+    cursor: pointer;
+
+    width: 17rem;
+    height: 6.5rem;
+    font-size: 1.875rem;
+    gap: .75rem;
+}
+
+.title{
+    font-weight: 500;
+}
+
+.logInImg{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.logInText{
+
+}
+
+.LoggedInNavBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    border-radius: 40px;
+    background: $cream-color;
+    
+
+    font-size: 1.875rem;
+    padding: 0 4rem;
+    width: 100%;
+    height: 6.5rem;
+}
+
+.loggedInSection{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navButton{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    font-size: 1.5rem;
+}
