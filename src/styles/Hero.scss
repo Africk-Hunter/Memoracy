@@ -1,0 +1,89 @@
+@use './variables' as *;
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    gap: 4rem;
+}
+
+.taglineSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tagline{
+    font-size: 4rem;
+    font-weight: 600;;
+    margin: 0;
+}
+
+.taglineDescription{
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+    margin: 10px 0 0 0;
+
+    width: 90%;
+}
+
+.CTAButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $cream-color;
+    font-weight: 400;
+    cursor: pointer;
+
+    border-radius: 40px;
+    width: 18rem;
+    height: 6rem;
+    font-size: 2rem;
+}
+.heroCards{
+    display: flex;
+    gap: 13rem;
+}
+
+.heroCardExt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $main-color;
+    padding: 1rem 1rem;
+    border-radius: 15px;
+    width: 21rem;
+    height: 25rem;
+    border: 3px solid black;
+    
+    &.cardOne{
+        transform: translateY(-10rem) rotate(-7deg);
+    }
+    &.cardThree{
+        transform: translateY(-10rem) rotate(7deg);
+    }
+}
+
+.heroCardInner {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background: $cream-color;
+    border-radius: 15px;
+    padding: 1rem;
+    height: calc(100% - 2rem);
+    flex-grow: 1;
+}
+
+.heroCardTitle{
+    font-size: 1.875rem;
+}
+
+.heroCardDescription{
+    font-size: 1.65rem;
+}

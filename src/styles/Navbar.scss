@@ -31,10 +31,6 @@
     height: 1.5rem;
 }
 
-.logInText{
-
-}
-
 .LoggedInNavBar{
     display: flex;
     justify-content: space-between;
@@ -61,7 +57,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     
-
+    gap: .5rem;
     font-size: 1.5rem;
+}
+
+.navImg{
+    width: 2rem;
+    height: 2rem;
 }

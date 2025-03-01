@@ -12,4 +12,12 @@ html {
 .shadowAndBorder{
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.25);
     border: 2px solid black;
+    transition: all .3s;
+}
+
+.buttonType{
+    &:hover{
+        box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.25);
+        transform: scale(1.025);
+    }
 }
