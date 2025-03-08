@@ -5,10 +5,10 @@ function NavbarLoggedOut() {
   return (
     <section className="navbar">
       <div className="unLoggedInNavButton shadowAndBorder title">Memoracy</div>
-      <div className="unLoggedInNavButton shadowAndBorder buttonType">
+      <a className="unLoggedInNavButton shadowAndBorder buttonType" href='/login'>
         <img src="/images/profile.svg" alt="" className="logInImg" />
         <p className="logInText">Log In</p>
-      </div>
+      </a>
     </section>
   );
 }

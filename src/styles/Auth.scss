@@ -1,0 +1,122 @@
+@use './variables' as *;
+
+.auth{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.loginBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $cream-color;
+
+    margin-top: 10rem;
+    border-radius: 20px;
+    width: 46rem;
+    height: 49rem;
+    gap: 2rem;
+    border-width: 3px !important;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loginTagline{
+    all: unset;
+    font-size: 2.875rem;
+    font-weight: 600;
+}
+
+.loginSubTag{
+    all: unset;
+    font-size: 1.25rem;
+    font-weight: 500;
+    opacity: .5;
+}
+.optionType{
+    display: flex;
+    background: $background-color;
+    width: 22.75rem;
+    height: 4rem;
+    border-radius: 10px;
+    border: black solid 2px;
+    justify-content: center;
+    align-items: center;
+    padding: .05rem;
+}
+
+.optionButton{
+    all: unset;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+    color: black;
+    opacity: .5;
+    cursor: pointer;
+    width: 10.5rem;
+    height: 3.125rem;
+
+    &.active{
+        background: $main-color;
+        color: $cream-color;
+        border-radius: 10px;
+        opacity: 1;
+        border: black solid 1px;
+    }
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.loginInput{
+    all: unset;
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    
+    font-size: 1.25rem;
+    border-radius: 10px;
+    background: none;
+    width: 33rem;
+    height: 4rem;
+    border: black solid 2px;
+}
+
+.loginButton{
+    all: unset;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 10px;
+    background: none;
+    width: 33rem;
+    height: 4rem;    
+    border: black solid 2px;
+
+    &.email{
+        background: $main-color;
+        color: $cream-color;
+    }
+
+    &.google{
+        gap: .5rem;
+        font-weight: 600;
+    }
+}
