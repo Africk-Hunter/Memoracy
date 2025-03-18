@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../firebaseConfig";
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "firebase/auth";
 
 const Auth: React.FC = () => {
 
@@ -70,6 +70,26 @@ const Auth: React.FC = () => {
             });
     }
 
+    function continueWithGoogle() {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential?.accessToken;
+                const user = result.user;
+
+                window.location.href = '/'; /* Placeholder */
+            }).catch(function (error) {
+
+                var errorCode = error.code;
+                console.log(errorCode);
+
+                var errorMessage = error.message;
+                console.log(errorMessage);
+                displayMessage(errorMessage, 'bad');
+            });
+    }
+
     return (
         <div className="auth">
             <MessageBox messageBoxMessage={messageBoxMessage} goodOrBad={messageType} />
@@ -89,7 +109,7 @@ const Auth: React.FC = () => {
                     <button className="loginButton email shadowAndBorder">Continue with Email</button>
                 </form>
                 <hr className="loginDivider" />
-                <button className="loginButton google">
+                <button className="loginButton google" onClick={continueWithGoogle}>
                     <img src="/images/google.svg" alt="" className="googleImg" />
                     Continue with Google
                 </button>
