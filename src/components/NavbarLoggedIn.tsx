@@ -15,9 +15,9 @@ function NavbarLoggedIn() {
         <div className="loggedInSection title">Memoracy</div>
 
         <nav className="loggedInSection">
-          <NavButton navText="My Decks" navPicture={image_paths.PlayingCardIcon} />
-          <NavButton navText="Create a Deck" navPicture={image_paths.PlusIcon} />
-          <NavButton navText="Settings" navPicture={image_paths.GearIcon} />
+          <NavButton navText="My Decks" navPicture={image_paths.PlayingCardIcon} link='../decks'/>
+          {/* <NavButton navText="Create a Deck" navPicture={image_paths.PlusIcon} link='../create-deck'/> */}
+          <NavButton navText="Settings" navPicture={image_paths.GearIcon} link='../settings'/>
         </nav>
 
       </div>
@@ -29,15 +29,15 @@ interface NavButtonProps {
 
   navText: string;
   navPicture: string;
-
+  link: string;
 }
 
-function NavButton( {navText, navPicture}: NavButtonProps ) {
+function NavButton( {navText, navPicture, link}: NavButtonProps ) {
   return (
-    <button className='navButton'>
+    <a className='navButton' href={link}>
       <img src={navPicture} alt="" className="navImg" />
       <p className="navText">{navText}</p>
-    </button>
+    </a>
   );
 }
 

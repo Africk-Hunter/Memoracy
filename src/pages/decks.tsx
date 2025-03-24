@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from '../components/Navbar';
+import DeckView from '../components/DeckView';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function Decks() {
+  return (
+    <DeckView />
+  );
+}
+
+export default Decks;
