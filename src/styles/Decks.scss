@@ -1,6 +1,6 @@
 @use './variables' as *;
 
-.decks{
+.decks {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -9,22 +9,23 @@
     width: 100%;
     font-family: 'Montserrat', sans-serif;
 
-    margin-top: 2rem;;
+    margin-top: 2rem;
+    ;
 }
 
-.deckHeaderBar{
+.deckHeaderBar {
     display: flex;
     justify-content: space-between;
     width: 80%;
 }
 
-.yourDecks{
+.yourDecks {
     font-size: 3.75rem;
     font-weight: 500;
     margin: 0;
 }
 
-.createDeckButton{
+.createDeckButton {
     all: unset;
     display: flex;
     justify-content: center;
@@ -39,34 +40,38 @@
     font-size: 1.6rem;
     border-radius: 10px;
     width: 14.5rem;
+    gap: 1rem;
 
-
-    &:hover{
+    &:hover {
         transform: scale(1.05);
     }
 }
 
-.deckEnv{
+.newDeckImg {
+    fill: red($color: red);
+}
+
+.deckEnv {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    gap: 2rem;
+    gap: 3rem;
     width: 80%;
     margin-top: 2rem;
 }
 
-.outerDeck{
+.outerDeck {
     border-radius: 10px;
     background: $main-color;
     padding: .5rem;
-    width: 19.5rem;
+    width: 18rem;
     height: 10rem;
 }
 
-.innerDeck{
+.innerDeck {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     background: $cream-color;
     border-radius: 10px;
     padding: 1rem;
@@ -75,15 +80,108 @@
     height: calc(100% - 2rem);
 }
 
-.deckMainBar{
+.deckMainBar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.deckTitle{
+.deckTitle {
     width: 80%;
     font-size: 1.5rem;
     font-weight: 500;
     margin: 0;
+}
+
+.editDeckButton {
+    all: unset;
+    display: flex;
+    cursor: pointer;
+    transition: .3s;
+    width: 2rem;
+    height: 1.5rem;
+    justify-content: end;
+
+    &:hover {
+        transform: scale(1.25);
+    }
+}
+
+.deckStats {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.deckStat {
+    margin: 0;
+}
+
+.nameDeckModalOverlay {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex; 
+    
+    justify-content: center;
+    align-items: center; 
+    z-index: 1000; 
+}
+
+.nameDeckModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: $cream-color;
+    border-radius: 10px;
+    width: 40rem;
+    height: 10rem;
+    padding: 2rem 0; 
+    z-index: 1010; 
+}
+
+.deckTitle{
+    all: unset;
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    
+    font-size: 1.25rem;
+    border-radius: 10px;
+    background: none;
+    width: 33rem;
+    height: 4rem;
+    border: black solid 2px;
+}
+
+.titleButtons{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.titleButton{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 3rem;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 1.25rem;;
+    cursor: pointer;
+
+    &.cancel{
+        background: $red-color;
+        color: $cream-color;
+    }
+    &.create{
+        background: $main-color;
+        color: $cream-color;
+    }
 }
 

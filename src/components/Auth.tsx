@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../firebaseConfig";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "firebase/auth";
 
@@ -9,6 +9,15 @@ const Auth: React.FC = () => {
     const [password, setPassword] = useState("");
     const [messageBoxMessage, setMessageBoxMessage] = useState("");
     const [messageType, setMessageType] = useState("");
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                window.location.href = '/decks';
+            }
+        });
+        return () => unsubscribe();
+    });
 
     function displayMessage(message: string, type: string) {
         setMessageBoxMessage(message);

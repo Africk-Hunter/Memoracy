@@ -4,22 +4,23 @@ import NavbarLoggedIn from "./NavbarLoggedIn";
 import NavbarLoggedOut from "./NavbarLoggedOut";
 import { auth } from "../firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
+import { useLocation } from 'react-router-dom';
 
 function Navbar() {
     const [user, setUser] = useState(auth.currentUser);
+    const location = useLocation(); 
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
         });
 
-        // Cleanup the listener on component unmount
         return () => unsubscribe();
     }, []);
 
     return (
         <>
-            {user ? <NavbarLoggedIn /> : <NavbarLoggedOut />}
+            {location.pathname !== "/" && user ? <NavbarLoggedIn /> : <NavbarLoggedOut />}
         </>
     );
 }
