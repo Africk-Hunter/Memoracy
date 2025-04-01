@@ -10,7 +10,6 @@
     font-family: 'Montserrat', sans-serif;
 
     margin-top: 2rem;
-    ;
 }
 
 .deckHeaderBar {
@@ -86,11 +85,12 @@
     align-items: center;
 }
 
-.deckTitle {
+.deckName {
     width: 80%;
     font-size: 1.5rem;
     font-weight: 500;
     margin: 0;
+    border: none;
 }
 
 .editDeckButton {
@@ -118,7 +118,7 @@
 }
 
 .nameDeckModalOverlay {
-    position: absolute; 
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100vw;
@@ -163,6 +163,7 @@
     justify-content: space-between;
     gap: 2rem;
 }
+
 .titleButton{
     all: unset;
     display: flex;
@@ -172,8 +173,13 @@
     height: 3rem;
     border: 2px solid black;
     border-radius: 10px;
-    font-size: 1.25rem;;
+    font-size: 1.25rem;
+    transition: .3s all;
     cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 
     &.cancel{
         background: $red-color;
