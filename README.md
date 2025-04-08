@@ -8,8 +8,7 @@ To build and run the project locally, follow these steps:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/spaced-repetition.git
-    cd spaced-repetition
+    https://github.com/Africk-Hunter/Memoracy.git
     ```
 
 2. Install the dependencies:
