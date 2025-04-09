@@ -11,7 +11,7 @@
 
 .messageBox{
     position: absolute;
-    top: 4rem;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,9 +25,19 @@
     text-align: center;
     padding: .5rem;
 
-    width: 30rem;
-    height: 10rem;
 
+    
+    @media screen and (min-width: $desktop) {
+        top: 3rem;
+        width: 30rem;
+        height: 8rem;
+    }
+
+    @media screen and (min-width: $large-desktop) {
+        top: 4rem;
+        width: 30rem;
+        height: 10rem;
+    }
 
     &.bad{
         background: rgba(255, 0, 0, 0.25);
@@ -46,12 +56,23 @@
     align-items: center;
     background: $cream-color;
 
-    margin-top: 10rem;
-    border-radius: 20px;
-    width: 46rem;
-    height: 49rem;
-    gap: 2rem;
-    border-width: 3px !important;
+    @media screen and (min-width: $desktop) {
+        margin-top: 0rem;
+        border-radius: 20px;
+        width: 40rem;
+        height: 43rem;
+        gap: 2rem;
+        border-width: 2px !important;
+    }
+
+    @media screen and (min-width: $large-desktop) {
+        margin-top: 10rem;
+        border-radius: 20px;
+        width: 46rem;
+        height: 49rem;
+        gap: 2rem;
+        border-width: 3px !important;
+    }
 }
 
 .text{

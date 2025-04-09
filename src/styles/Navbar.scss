@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    color: black;
 }
 
 .unLoggedInNavButton {
@@ -73,4 +74,8 @@
 .navImg {
     width: 2rem;
     height: 2rem;
+}
+
+a{
+    color: black;
 }
