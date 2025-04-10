@@ -4,18 +4,17 @@ interface DeckModalProps {
     clearModal: () => void;
     setTitle: (title: string) => void;
     create?: () => void;
-    rename?: () => void;
+    rename?: () => Promise<void>;
     type: string;
 }
 
-function DeckModal({ clearModal, setTitle, create, rename, type }: DeckModalProps) {
-
+function DeckModal({ clearModal, setTitle, rename, create, type }: DeckModalProps) {
     return (
         <section className="nameDeckModal shadowAndBorder">
-            <input type="text" className="deckTitle" placeholder="Deck Title" onChange={(e) => setTitle(e.currentTarget.value)} />
+            <input type="text" className="deckTitle" placeholder={type === 'create' ? 'Deck Title' : 'New Deck Title'} onChange={(e) => setTitle(e.currentTarget.value)} />
             <section className="titleButtons">
                 <button className="titleButton cancel" onClick={clearModal}>Cancel</button>
-                <button className="titleButton create" onClick={type === 'create' ? create : rename}>Create Deck</button>
+                <button className="titleButton create" onClick={type === 'create' ? create : rename}>{type === 'create' ? 'Create Deck' : 'Rename Deck'}</button>
             </section>
         </section>
     );
