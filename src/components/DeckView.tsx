@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { useDeckContext } from "../context/DeckContext";
 import { fetchDecks, createDeck, renameDeck } from "../utilities/FirebaseHelpers";
 import { auth } from "../firebaseConfig";
 import DeckCard from "./DeckCard";
 import DeckModal from "./DeckModal";
 
 const DeckView: React.FC = () => {
-    const [decks, setDecks] = useState<{ title: string; cardCount: number; practiceCount: number; id: number; }[]>([]);
-    const [selectedDeckTitle, setSelectedDeckTitle] = useState<string>("");
-    const [selectedDeckIndex, setSelectedDeckIndex] = useState<number | null>(null);
-    const [isModalShown, setIsModalShown] = useState<boolean>(false);
-    const [selectedDeck, setSelectedDeck] = useState<Number | null>(null);
-    const [modalType, setModalType] = useState<string>('create');
+    const {
+        decks,
+        setDecks,
+        selectedDeckTitle,
+        setSelectedDeckTitle,
+        selectedDeckIndex,
+        setSelectedDeckIndex,
+        isModalShown,
+        setIsModalShown,
+        modalType,
+        setModalType,
+    } = useDeckContext();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -20,37 +27,46 @@ const DeckView: React.FC = () => {
         return () => unsubscribe();
     }, []);
 
-    // Clear Modal off screen and reset it to default.
     function clearModal() {
         setIsModalShown(false);
         setSelectedDeckTitle("");
         setModalType('create');
         setSelectedDeckIndex(null);
-        setSelectedDeckTitle("");
+    }
+
+    function isTitleInputValid(input: string): boolean {
+        if (input.trim() === "") {
+            // REPLACE ALERTS WITH TOASTS LATER
+            alert("Deck title cannot be empty.");
+            return false;
+        }
+        if (input.length > 25) {
+            alert("Deck title cannot exceed 25 characters.");
+            return false;
+        }
+        return true;
     }
 
     // Handle Creation of New Deck
     async function handleDeckCreation() {
-        if (!selectedDeckTitle.trim()) {
-            alert("Please enter a deck title.");
-            return;
+        if (isTitleInputValid(selectedDeckTitle)) {
+
+            await createDeck(selectedDeckTitle);
+            fetchDecks(setDecks);
+            clearModal();
         }
-        await createDeck(selectedDeckTitle);
-        fetchDecks(setDecks);
-        clearModal();
     }
 
     async function rename() {
-        if (!selectedDeckTitle.trim()) {
-            alert("Please enter a new deck title.");
+        if (!isTitleInputValid(selectedDeckTitle)) {
             return;
         }
-        // Find the firebase entry with that title and update the title to the new one
-        if (selectedDeckIndex !== null) {
-            renameDeck(selectedDeckIndex, selectedDeckTitle);
+        if (selectedDeckIndex == null) {
+            alert("No deck selected for renaming.");
+            return;
         }
+        renameDeck(selectedDeckIndex, selectedDeckTitle);
         fetchDecks(setDecks);
-        // Close Modal
         clearModal();
     }
 
@@ -64,12 +80,12 @@ const DeckView: React.FC = () => {
             </section>
             <section className="deckEnv">
                 {decks.map((deck, index) => (
-                    <DeckCard key={index} setSelectedDeckIndex={setSelectedDeckIndex} setModalType={setModalType} setIsModalShown={setIsModalShown} {...deck} />
+                    <DeckCard key={index} {...deck} />
                 ))}
             </section>
             {isModalShown && (
                 <section className="nameDeckModalOverlay">
-                    <DeckModal clearModal={clearModal} setTitle={setSelectedDeckTitle} create={handleDeckCreation} rename={rename} type={modalType} />
+                    <DeckModal clearModal={clearModal} create={handleDeckCreation} rename={rename} />
                 </section>
             )}
         </section>

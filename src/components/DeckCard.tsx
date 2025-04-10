@@ -1,33 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
+import { useDeckContext } from "../context/DeckContext";
 
 interface DeckCardProps {
     title: string;
     cardCount: number;
     practiceCount: number;
     id: number;
-    setSelectedDeckIndex: (index: number | null) => void;
-    setModalType: (index: string) => void;
-    setIsModalShown: (isModalShown: boolean) => void;
 }
 
-function DeckCard({ title, cardCount, practiceCount, id, setSelectedDeckIndex, setModalType, setIsModalShown }: DeckCardProps) {
+function DeckCard({ title, cardCount, practiceCount, id }: DeckCardProps) {
     const [isMenuVisible, setIsMenuVisible] = useState(false);
-    const [isBeingEdited, setIsBeingEdited] = useState(false);
+    const { setSelectedDeckIndex, setModalType, setIsModalShown } = useDeckContext();
 
     const toggleMenu = () => {
         setIsMenuVisible((prev) => !prev);
     };
 
     function handleRename() {
-        if (isMenuVisible) {
-            setSelectedDeckIndex(id);
-            setModalType('rename');
-            setIsModalShown(true);
-        } else {
-            setSelectedDeckIndex(null);
-        }
+        setSelectedDeckIndex(id);
+        setModalType("rename");
+        setIsModalShown(true);
         toggleMenu();
-        console.log(id, title);
     }
 
     return (
@@ -45,7 +38,6 @@ function DeckCard({ title, cardCount, practiceCount, id, setSelectedDeckIndex, s
                         </section>
                     )}
                 </section>
-
                 <section className="deckStats">
                     <p className="deckStat">{cardCount} cards</p>
                     <p className="deckStat">Practiced {practiceCount} times</p>

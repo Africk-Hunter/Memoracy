@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Login from './pages/login';
 import Decks from './pages/decks';
 
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

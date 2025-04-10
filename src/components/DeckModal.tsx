@@ -1,20 +1,22 @@
 import React from 'react';
+import { useDeckContext } from "../context/DeckContext";
 
 interface DeckModalProps {
     clearModal: () => void;
-    setTitle: (title: string) => void;
     create?: () => void;
     rename?: () => Promise<void>;
-    type: string;
 }
 
-function DeckModal({ clearModal, setTitle, rename, create, type }: DeckModalProps) {
+function DeckModal({ clearModal, rename, create }: DeckModalProps) {
+
+    const { setSelectedDeckTitle, modalType } = useDeckContext();
+
     return (
         <section className="nameDeckModal shadowAndBorder">
-            <input type="text" className="deckTitle" placeholder={type === 'create' ? 'Deck Title' : 'New Deck Title'} onChange={(e) => setTitle(e.currentTarget.value)} />
+            <input type="text" className="deckTitle" placeholder={modalType === 'create' ? 'Deck Title' : 'New Deck Title'} onChange={(e) => setSelectedDeckTitle(e.currentTarget.value)} />
             <section className="titleButtons">
                 <button className="titleButton cancel" onClick={clearModal}>Cancel</button>
-                <button className="titleButton create" onClick={type === 'create' ? create : rename}>{type === 'create' ? 'Create Deck' : 'Rename Deck'}</button>
+                <button className="titleButton create" onClick={modalType === 'create' ? create : rename}>{modalType === 'create' ? 'Create Deck' : 'Rename Deck'}</button>
             </section>
         </section>
     );

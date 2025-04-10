@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom/client';
 import DeckView from '../components/DeckView';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { DeckProvider } from "../context/DeckContext";
 
 function Decks() {
   return (
-    <DeckView />
+    <DeckProvider>
+      <DeckView />
+    </DeckProvider>
   );
 }
 
