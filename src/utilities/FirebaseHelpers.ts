@@ -1,5 +1,5 @@
 import { db, auth } from "../firebaseConfig";
-import { doc, setDoc, collection, getDocs, updateDoc } from "firebase/firestore";
+import { doc, setDoc, collection, getDocs, updateDoc, deleteDoc } from "firebase/firestore";
 
 export async function fetchDecks(setDecks: (decks: any[]) => void) {
     const user = auth.currentUser;
@@ -72,5 +72,21 @@ export async function renameDeck(deckId: number, newTitle: string) {
         console.log("Deck renamed successfully!");
     } catch (error) {
         console.error("Error renaming deck:", error);
+    }
+}
+
+export async function deleteDeck(deckId: number) {
+    const user = auth.currentUser;
+    if (!user) {
+        console.error("User is not authenticated");
+        return;
+    }
+
+    try {
+        const deckRef = doc(db, "users", user.uid, "decks", deckId.toString());
+        await deleteDoc(deckRef);
+        console.log("Deck deleted successfully!");
+    } catch (error) {
+        console.error("Error deleting deck:", error);
     }
 }

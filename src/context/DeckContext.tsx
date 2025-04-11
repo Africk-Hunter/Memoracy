@@ -5,8 +5,8 @@ interface DeckContextType {
     setDecks: React.Dispatch<React.SetStateAction<{ title: string; cardCount: number; practiceCount: number; id: number }[]>>;
     selectedDeckTitle: string;
     setSelectedDeckTitle: React.Dispatch<React.SetStateAction<string>>;
-    selectedDeckIndex: number | null;
-    setSelectedDeckIndex: React.Dispatch<React.SetStateAction<number | null>>;
+    selectedDeckID: number | null;
+    setSelectedDeckID: React.Dispatch<React.SetStateAction<number | null>>;
     isModalShown: boolean;
     setIsModalShown: React.Dispatch<React.SetStateAction<boolean>>;
     modalType: string;
@@ -18,7 +18,7 @@ const DeckContext = createContext<DeckContextType | undefined>(undefined);
 export const DeckProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [decks, setDecks] = useState<{ title: string; cardCount: number; practiceCount: number; id: number }[]>([]);
     const [selectedDeckTitle, setSelectedDeckTitle] = useState<string>("");
-    const [selectedDeckIndex, setSelectedDeckIndex] = useState<number | null>(null);
+    const [selectedDeckID, setSelectedDeckID] = useState<number | null>(null);
     const [isModalShown, setIsModalShown] = useState<boolean>(false);
     const [modalType, setModalType] = useState<string>('create');
 
@@ -29,8 +29,8 @@ export const DeckProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 setDecks,
                 selectedDeckTitle,
                 setSelectedDeckTitle,
-                selectedDeckIndex,
-                setSelectedDeckIndex,
+                selectedDeckID,
+                setSelectedDeckID,
                 isModalShown,
                 setIsModalShown,
                 modalType,

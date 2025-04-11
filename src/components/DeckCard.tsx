@@ -10,15 +10,22 @@ interface DeckCardProps {
 
 function DeckCard({ title, cardCount, practiceCount, id }: DeckCardProps) {
     const [isMenuVisible, setIsMenuVisible] = useState(false);
-    const { setSelectedDeckIndex, setModalType, setIsModalShown } = useDeckContext();
+    const { setSelectedDeckID, setModalType, setIsModalShown } = useDeckContext();
 
     const toggleMenu = () => {
         setIsMenuVisible((prev) => !prev);
     };
 
-    function handleRename() {
-        setSelectedDeckIndex(id);
+    function toggleModalForRename() {
+        setSelectedDeckID(id);
         setModalType("rename");
+        setIsModalShown(true);
+        toggleMenu();
+    }
+
+    function toggleModalForDelete() {
+        setSelectedDeckID(id);
+        setModalType("delete");
         setIsModalShown(true);
         toggleMenu();
     }
@@ -33,8 +40,8 @@ function DeckCard({ title, cardCount, practiceCount, id }: DeckCardProps) {
                     </button>
                     {isMenuVisible && (
                         <section className="editOptionsMenu" tabIndex={0}>
-                            <button className="editOption" onClick={handleRename}>Rename</button>
-                            <button className="editOption">Delete</button>
+                            <button className="editOption" onClick={toggleModalForRename}>Rename</button>
+                            <button className="editOption" onClick={toggleModalForDelete}>Delete</button>
                         </section>
                     )}
                 </section>

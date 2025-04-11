@@ -180,16 +180,21 @@
     transition: .15s all;
     cursor: pointer;
 
+    background: $background-color;
+
     &:hover {
         transform: scale(1.05);
     }
-
     &.cancel{
         background: $red-color;
         color: $cream-color;
     }
     &.create{
         background: $main-color;
+        color: $cream-color;
+    }
+    &.delete{
+        background: $red-color;
         color: $cream-color;
     }
 }
