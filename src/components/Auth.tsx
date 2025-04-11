@@ -22,6 +22,11 @@ const Auth: React.FC = () => {
     function displayMessage(message: string, type: string) {
         setMessageBoxMessage(message);
         setMessageType(type);
+
+        setTimeout(() => {
+            setMessageBoxMessage("");
+            setMessageType("");
+        }, 3000);
     }
 
     function checkPassword(password: string) {
@@ -36,7 +41,6 @@ const Auth: React.FC = () => {
         }
         setMessageBoxMessage("");
         return true;
-
     }
 
     interface AuthFormEvent extends React.FormEvent<HTMLFormElement> { }
@@ -69,7 +73,7 @@ const Auth: React.FC = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                window.location.href = '/'; /* Placeholder */
+                window.location.href = '/decks';
             })
             .catch((error) => {
                 displayMessage('Invalid email or password. Please try again', 'bad');
@@ -87,7 +91,7 @@ const Auth: React.FC = () => {
                 const token = credential?.accessToken;
                 const user = result.user;
 
-                window.location.href = '/'; /* Placeholder */
+                window.location.href = '/decks';
             }).catch(function (error) {
 
                 var errorCode = error.code;

@@ -3,7 +3,7 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     color: black;
 }
 
@@ -13,7 +13,7 @@
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    border-radius: 40px;
+    border-radius:25px;
     background: $cream-color;
     color: black;
     cursor: pointer;
@@ -23,6 +23,7 @@
     font-size: 1.6rem;
     gap: .75rem;
     border-width: 2px !important;
+    
     @media (min-width: 1921px) {
         width: 17rem;
         height: 6.5rem;

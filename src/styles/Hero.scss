@@ -9,7 +9,12 @@
     gap: 4rem;
     height: 100vh;
 
-    @media (min-width: 1921px) {
+    @media (min-width: $desktop) {
+        gap: 3rem;
+        height: 100vh;
+    }
+
+    @media (min-width: $large-desktop) {
         gap: 6rem;
     }
 }
@@ -22,24 +27,32 @@
 }
 
 .tagline{
-    font-size: 4rem;
-    font-weight: 600;;
+    font-weight: 600;
     margin: 0;
     text-align: center;
+    font-size: 4rem;
 
-    @media (min-width: 1921px) {
+    @media (min-width: $desktop) {
+        font-size: 3.5rem;
+    }
+
+    @media (min-width: $large-desktop) {
         font-size: 6rem;
     }
 }
 
 .taglineDescription{
-    font-size: 2rem;
     font-weight: 400;
     text-align: center;
     margin: 10px 0 0 0;
     width: 90%;
+    font-size: 2rem;
 
-    @media (min-width: 1921px) {
+    @media (min-width: $desktop) {
+        font-size: 1.75rem;
+    }
+    
+    @media (min-width: $large-desktop) {
         font-size: 3rem;
     }
 }
@@ -52,13 +65,19 @@
     font-weight: 400;
     cursor: pointer;
 
-    border-radius: 40px;
+    border-radius: 25px;
     width: 18rem;
     height: 6rem;
     font-size: 2rem;
     border-width: 3px;
 
-    @media (min-width: 1921px) {
+    @media (min-width: $desktop) {
+        font-size: 1.75rem;
+        width: 16rem;
+        height: 5.5rem;
+    }
+
+    @media (min-width: $large-desktop) {
         width: 20rem;
         height: 8rem;
         font-size: 2.5rem;
@@ -87,7 +106,13 @@
         transform: translateY(-10rem) rotate(7deg);
     }
 
-    @media (min-width: 1921px) {
+    @media (min-width: $desktop) {
+        border-radius: 25px;
+        width: 17rem;
+        height: 20rem;
+    }
+
+    @media (min-width: $large-desktop) {
         border-radius: 25px;
         width: 25rem;
         height: 30rem;
@@ -105,24 +130,33 @@
     height: calc(100% - 2rem);
     flex-grow: 1;
 
-    @media (min-width: 1921px) {
+    @media (min-width: $large-desktop) {
         padding: 2rem;
         height: calc(100% - 4rem);
     }
 }
 
 .heroCardTitle{
-    font-size: 1.875rem;
 
-    @media (min-width: 1921px) {
+    @media (min-width: $desktop) {
+        font-size: 1.75rem;
+    }
+
+    @media (min-width: $large-desktop) {
         font-size: 2.25rem;
     }
 }
 
 .heroCardDescription{
-    font-size: 1.65rem;
 
-    @media (min-width: 1921px) {
+    
+
+    @media (min-width: $desktop) {
+        font-size: 1.6rem;
+        margin: 0;
+    }
+
+    @media (min-width: $large-desktop) {
         font-size: 2rem;
     }
 }
