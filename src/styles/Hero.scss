@@ -64,6 +64,7 @@
     background: $cream-color;
     font-weight: 400;
     cursor: pointer;
+    color: black;
 
     border-radius: 25px;
     width: 18rem;
@@ -83,6 +84,7 @@
         font-size: 2.5rem;
     }
 }
+
 .heroCards{
     display: flex;
     gap: 13rem;
@@ -148,9 +150,6 @@
 }
 
 .heroCardDescription{
-
-    
-
     @media (min-width: $desktop) {
         font-size: 1.6rem;
         margin: 0;
