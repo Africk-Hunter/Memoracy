@@ -30,3 +30,20 @@ body{
         transform: scale(1.025);
     }
 }
+::-webkit-scrollbar {
+    width: 6px;
+    background: $cream-color;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $main-color;
+    border-radius: 4px;
+    &:hover {
+        border: 1px solid black;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background: lighten($cream-color, 10%);
+    border-radius: 4px;
+}

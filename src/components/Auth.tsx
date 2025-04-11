@@ -109,7 +109,7 @@ const Auth: React.FC = () => {
 
             <section className="shadowAndBorder loginBox ">
                 <section className="text">
-                    <h1 className="loginTagline">{option === 'Sign In' ? 'Welcome Back' : 'Let\'s get started!'}</h1>
+                    <h1 className="loginTagline">{option === 'Sign In' ? 'Welcome Back!' : 'Let\'s get started!'}</h1>
                     <p className="loginSubTag">Enter your Memoracy account details</p>
                 </section>
                 <section className="optionType">

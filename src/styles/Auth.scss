@@ -1,6 +1,6 @@
 @use './variables' as *;
 
-.auth{
+.auth {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -9,9 +9,9 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.messageBox{
+.messageBox {
     position: absolute;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,12 +20,12 @@
     transition: .5s opacity;
     font-weight: 500;
     font-size: 1.5rem;
-    
+
     border-radius: 20px;
     text-align: center;
     padding: .5rem;
 
-    
+
     @media screen and (min-width: $desktop) {
         bottom: 3rem;
         right: 3rem;
@@ -39,35 +39,42 @@
         height: 10rem;
     }
 
-    &.bad{
+    &.bad {
         background: rgba(255, 0, 0, 0.25);
         opacity: 1;
     }
-    &.good{
+
+    &.good {
         background: rgba(0, 255, 0, 0.25);
         opacity: 1;
     }
 }
 
-.loginBox{
-    display: flex;
+.loginBox {
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: $cream-color;
+    border-radius: 20px;
+    gap: 1.5rem;
 
-    @media screen and (min-width: $desktop) {
+    @media (max-width: $mobile) {
+        margin: 3rem 1rem 0 1rem;
+        width: calc(100% - 2rem - 4px);
+        height: 40rem;
+    }
+
+    @media (min-width: $desktop) {
         margin-top: 0rem;
-        border-radius: 20px;
         width: 40rem;
         height: 43rem;
         gap: 2rem;
         border-width: 2px !important;
     }
 
-    @media screen and (min-width: $large-desktop) {
+    @media (min-width: $large-desktop) {
         margin-top: 10rem;
-        border-radius: 20px;
         width: 46rem;
         height: 49rem;
         gap: 2rem;
@@ -75,37 +82,52 @@
     }
 }
 
-.text{
+.text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.loginTagline{
+
+.loginTagline {
     all: unset;
-    font-size: 2.875rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+
+    @media (min-width: $desktop) {
+        font-size: 2.875rem;
+        font-weight: 600;
+    }
 }
 
-.loginSubTag{
+.loginSubTag {
     all: unset;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
     opacity: .5;
+
+    @media (min-width: $desktop) {
+        font-size: 1.25rem;
+    }
 }
-.optionType{
+
+.optionType {
     display: flex;
     background: $background-color;
-    width: 22.75rem;
-    height: 4rem;
     border-radius: 10px;
     border: black solid 2px;
     justify-content: center;
     align-items: center;
     padding: .05rem;
+
+    width: 18rem;
+    height: 3.25rem;
+
+    @media (min-width: $desktop) {
+        width: 22.75rem;
+    }
 }
 
-.optionButton{
+.optionButton {
     all: unset;
     font-size: 1.3rem;
     font-weight: 500;
@@ -113,20 +135,24 @@
     color: black;
     opacity: .5;
     cursor: pointer;
-    width: 10.5rem;
-    height: 3.125rem;
+    
+    width: 8.5rem;
+    height: 2.5rem;
+    
+    @media (min-width: $desktop) {
+        width: 10.5rem;
+    }
 
-    &.active{
+    &.active {
         background: $main-color;
         color: $cream-color;
         border-radius: 10px;
         opacity: 1;
         border: black solid 1px;
-        
     }
 }
 
-.loginForm{
+.loginForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -134,27 +160,37 @@
     gap: 1rem;
 }
 
-.loginInput{
+.loginInput {
     all: unset;
     display: flex;
     box-sizing: border-box;
-    padding-left: 1rem;
-    
-    font-size: 1.25rem;
     border-radius: 10px;
     background: none;
-    width: 33rem;
-    height: 4rem;
     border: black solid 2px;
+
+    width: 18.5rem;
+    height: 3rem;
+    padding-left: .75rem;
+
+    @media (min-width: $desktop) {
+        width: 33rem;
+        height: 4rem;
+        padding-left: 1rem;
+        font-size: 1.25rem;
+    }
 }
 
-.loginDivider{
+.loginDivider {
     border: black 1px solid;
-    width: 33rem;
+    width: 18rem;
     opacity: .5;
+
+    @media (min-width: $desktop) {
+        width: 33rem;
+    }
 }
 
-.loginButton{
+.loginButton {
     all: unset;
     display: flex;
     box-sizing: border-box;
@@ -162,26 +198,34 @@
     align-items: center;
     cursor: pointer;
     transition: .3s all;
-    
-    font-size: 1.25rem;
+
     font-weight: 500;
     border-radius: 10px;
     background: none;
-    width: 33rem;
-    height: 4rem;    
     border: black solid 2px;
 
-    &.email{
+    &.email {
         background: $main-color;
         color: $cream-color;
     }
 
-    &.google{
+    &.google {
         gap: .5rem;
         font-weight: 600;
     }
 
-    &:hover{
+    &:hover {
         transform: scale(1.05);
+    }
+
+    width: 18.5rem;
+    height: 3rem;
+    font-size: 1rem;
+
+    @media (min-width: $desktop) {
+        width: 33rem;
+        height: 4rem;
+        padding-left: 1rem;
+        font-size: 1.25rem;
     }
 }

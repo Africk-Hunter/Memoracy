@@ -8,11 +8,11 @@ function Hero() {
         <h1 className="tagline">Efficient Learning<br /> Long-Term Results</h1>
         <p className="taglineDescription">Use Spaced Repetition to Learn More in Less Time.</p>
       </section>
-      <button className="CTAButton shadowAndBorder buttonType">Get Started</button>
+      <a className="CTAButton shadowAndBorder buttonType" href='/login'>Get Started</a>
       <section className="heroCards">
-        <HeroCard cardTitle="Day One" cardText="Draw a cube with all its sides facing towards a single point on the horizon (vanishing point)" cardNumber='cardOne' />
-        <HeroCard cardTitle="Day Two" cardText="Draw a cube with all its sides facing towards a single point on the horizon (vanishing point)" cardNumber='cardTwo' />
-        <HeroCard cardTitle="Day Three" cardText="Draw a cube with all its sides facing towards a single point on the horizon (vanishing point)" cardNumber='cardThree' />
+        <HeroCard cardTitle="Day One" cardText="Learn the basics of perspective by drawing simple cubes in one-point perspective." cardNumber='cardOne' />
+        <HeroCard cardTitle="Day Two" cardText="Practice two-point perspective by drawing cubes from different angles." cardNumber='cardTwo' />
+        <HeroCard cardTitle="Day Three" cardText="Master three-point perspective by drawing cubes with a vanishing point above or below the horizon." cardNumber='cardThree' />
       </section>
     </div>
   );

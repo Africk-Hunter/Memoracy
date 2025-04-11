@@ -8,7 +8,7 @@
 }
 
 .unLoggedInNavButton {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
@@ -24,7 +24,11 @@
     gap: .75rem;
     border-width: 2px !important;
     
-    @media (min-width: 1921px) {
+    @media (min-width: $desktop) {
+        display: flex;
+    }
+
+    @media (min-width: $large-desktop) {
         width: 17rem;
         height: 6.5rem;
         border-width: 3px;
@@ -32,7 +36,13 @@
 }
 
 .title {
+    display: flex;
     font-weight: 500;
+    
+    @media (max-width: $desktop) {
+        width: 12.5rem;
+        height: 4.5rem;
+    }
 }
 
 .logInImg {
@@ -48,7 +58,6 @@
     font-weight: 400;
     border-radius: 40px;
     background: $cream-color;
-
 
     font-size: 1.875rem;
     padding: 0 4rem;
