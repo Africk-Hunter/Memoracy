@@ -10,19 +10,36 @@
     font-family: 'Montserrat', sans-serif;
 
     gap: 3rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
+
+    @media (min-width: $desktop) {
+        margin-top: 4rem;
+    }
 }
 
 .deckHeaderBar {
     display: flex;
-    justify-content: space-between;
     width: 80%;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: $desktop) {
+        justify-content: space-between; 
+        flex-direction: row;
+        gap: 0;
+    }
+
 }
 
 .yourDecks {
-    font-size: 3.75rem;
+    
     font-weight: 500;
     margin: 0;
+    font-size: 2.75rem;
+
+    @media (min-width: $desktop) {
+        font-size: 3.75rem;
+    }
 }
 
 .createDeckButton {
@@ -37,13 +54,21 @@
     user-select: none;
     cursor: pointer;
 
-    font-size: 1.6rem;
+    font-size: 1.25rem;
     border-radius: 10px;
-    width: 14.5rem;
+    width: 11rem;
+    height: 3.5rem;
     gap: 1rem;
 
     &:hover {
         transform: scale(1.05);
+    }
+
+    @media (min-width: $desktop) {
+        font-size: 1.6rem;
+        border-radius: 10px;
+        width: 14.5rem;
+        gap: 1rem;
     }
 }
 
@@ -54,18 +79,30 @@
 .deckEnv {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
-    gap: 3rem;
     width: 80%;
-    margin-top: 2rem;
+    justify-content: center;
+    gap: 1rem;
+
+    @media (min-width: $desktop) {
+        margin-top: 2rem;
+        gap: 3rem;
+        justify-content: start;
+    }
 }
 
 .outerDeck {
     border-radius: 10px;
     background: $main-color;
-    padding: .5rem;
-    width: 18rem;
-    height: 10rem;
+
+    padding: .25rem;
+    width: 100%;
+    min-height: 8rem;
+
+    @media (min-width: $desktop) {
+        padding: .5rem;
+        width: 18rem;
+        height: 10rem;
+    }
 }
 
 .innerDeck {
@@ -141,10 +178,16 @@
     justify-content: space-between;
     background: $cream-color;
     border-radius: 10px;
-    width: 40rem;
+    width: 25rem;
     height: 10rem;
     padding: 2rem 0; 
     z-index: 1010; 
+
+    @media (min-width: $desktop) {
+        width: 40rem;
+        height: 10rem;
+        padding: 2rem 0; 
+    }
 }
 
 .deckTitle{
@@ -156,9 +199,14 @@
     font-size: 1.25rem;
     border-radius: 10px;
     background: none;
-    width: 33rem;
+    width: 20rem;
     height: 4rem;
     border: black solid 2px;
+
+    @media (min-width: $desktop) {
+        width: 33rem;
+        height: 4rem;
+    }
 }
 
 .titleButtons{
@@ -178,6 +226,7 @@
     border-radius: 10px;
     font-size: 1.25rem;
     transition: .15s all;
+    font-weight: 600;
     cursor: pointer;
 
     background: $background-color;
@@ -194,8 +243,8 @@
         color: $cream-color;
     }
     &.delete{
-        background: $red-color;
-        color: $cream-color;
+        background: $bright-red-color;
+        color: $background-color;
     }
 }
 
@@ -230,6 +279,8 @@
        background-color: $main-color;
        color: $cream-color;
     }
+}
 
-
+.modalTitle{
+    text-align: center;
 }

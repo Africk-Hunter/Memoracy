@@ -4,9 +4,10 @@ import { auth } from "../firebaseConfig";
 
 const image_paths = {
   PlusIcon: '/images/Plus.svg',
-  PlayingCardIcon: '/images/PlayingCard.svg',
+  DecksIcon: '/images/Decks.svg',
   GearIcon: '/images/Gear.svg',
   LogOut: '/images/LogOut.svg',
+  Logo: '/images/Logo.svg',
 }
 
 
@@ -15,9 +16,10 @@ function NavbarLoggedIn() {
     <section className="navbar">
       <div className="LoggedInNavBar shadowAndBorder">
         <a className="loggedInSection title" href='../'>Memoracy</a>
+        <a className="loggedInSection title logo" href='../'><img src={image_paths.Logo} alt="" className='logoImg'/></a>
 
         <nav className="loggedInSection">
-          <NavButton navText="My Decks" navPicture={image_paths.PlayingCardIcon} link='../decks'/>
+          <NavButton navText="My Decks" navPicture={image_paths.DecksIcon} link='../decks'/>
           <NavButton navText="Settings" navPicture={image_paths.GearIcon} link='../settings'/>
           <NavButton navText="Log Out" navPicture={image_paths.LogOut} link='../'/>
         </nav>

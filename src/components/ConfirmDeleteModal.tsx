@@ -12,7 +12,7 @@ function ConfirmDeleteModal({ clearModal, handleDelete }: ConfirmDeleteModalProp
 
     return (
         <section className="nameDeckModal shadowAndBorder">
-            <h2 className="modalTitle">Are you sure you want to delete the deck {selectedDeckTitle}?</h2>
+            <h2 className="modalTitle">Are you sure you want to delete this deck?</h2>
             <section className="titleButtons">
                 <button className="titleButton" onClick={clearModal}>Cancel</button>
                 <button className="titleButton delete" onClick={handleDelete}>Delete</button>
